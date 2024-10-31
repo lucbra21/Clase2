@@ -72,3 +72,38 @@ Principales diferencias entre los archivos .ipynb (Jupyter Notebook) y .py (Pyth
   * Necesites documentar paso a paso tu proceso
   * Quieras combinar explicaciones con código
   * Necesites visualizar resultados inmediatamente
+
+
+  Para generar el archivo requirements.txt que lista todas las dependencias de tu entorno virtual, hay dos formas principales:
+
+
+1. **Forma directa** - Genera requirements.txt con todas las dependencias instaladas:
+```bash
+pip freeze > requirements.txt
+```
+
+2. **Forma selectiva** - Si solo quieres guardar los paquetes que has instalado explícitamente:
+```bash
+pip list --format=freeze > requirements.txt
+```
+
+Para **instalar** las dependencias desde un requirements.txt en otro entorno:
+```bash
+pip install -r requirements.txt
+```
+
+**Buenas prácticas:**
+1. Genera el requirements.txt con el entorno virtual activado
+2. Revisa el archivo generado para eliminar dependencias innecesarias
+3. Considera especificar versiones mínimas usando >= en lugar de ==
+4. Mantén el archivo actualizado cuando agregues o quites dependencias
+
+**Ejemplo de contenido de requirements.txt:**
+```
+numpy==1.21.0
+pandas>=1.3.0
+matplotlib==3.4.2
+scikit-learn>=0.24.2
+```
+
+¿Necesitas ayuda con algún aspecto específico de la gestión de dependencias?
