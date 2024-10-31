@@ -3,30 +3,24 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 
-def main():
-    st.title("Mi primera app en Streamlit")
-    st.header("este es el header")
-    st.subheader("este es el subheader")
-    st.text("esto es un texto")
-    nombre = 'mundo'
-    st.text(f"hola {nombre}")
-    nombre = 'lucas'
-    st.text("hola " + nombre)
-    st.markdown("# Esto es un markdown 1")
-    st.markdown("## Esto es un markdown 2")
-    st.markdown("### Esto es un markdow 3")
-    st.markdown("#### Esto es un markdown 4")
-    st.markdown("Esto es un markdown 0")
-    st.success("mensaje de éxito")
-    st.error("mensaje de error")
-    st.warning("mensaje de advertencia")
-    st.info("informacion")
-    st.exception("mensaje control de excepciones")
-    st.text("esto es un texto")
+df = pd.read_csv('data/match_result.csv')
 
-    st.write("el texto que queremos")
-    st.write("### el texto que queremos")
-    st.write(1 + 3)
+def main():
+    st.title("Trabajando con datos en Streamlit")
+    st.header("Usando dataframe")
+    st.dataframe(df)
+    st.header("Usando table")
+    st.table(df)
+
+    st.header("Visualizando json")
+    st.json({"clave":"valor"})
+
+    codigo = """
+    def saludando(nombre):
+        print("Hola " + nombre)
+
+    """
+    st.code(codigo, language="python")
 
 if __name__ == "__main__":
     main()
